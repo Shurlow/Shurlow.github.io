@@ -8,11 +8,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
 
- 	<script src="para.js">
-
-		
-		
- 	</script>
+ 	<script src="para.js"></script>
 
 </head>
 
@@ -21,54 +17,137 @@
 
 	<style type="text/css">
 
-	body {background-color: #D9CEB2}
+	body {background-color: #787B87;
+	}
 
-	h1 {color:#020304;
-		margin: 0;
+	div {margin: 0;}
+
+	h1 {color:#101022;
 		text-align: center;
-		font-size: 90px;
+		font-size: 70px;
 		font-family:HelveticaNeue;
 		letter-spacing:3px;
-		border: 30px;
-		box-shadow: 0 0 0 4px #99B2B7, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
 		}
 
-	p { padding: 50px;
-		font-size: 45px;
+	h2 {color: #ff7a85;
 		font-family: HelveticaNeue-light;
-		text-align: center; }
+		font-size: 250px;
+   		font-weight: 100;
+		letter-spacing: 10px;}
+	
+	h3 {font-family: HelveticaNeue;
+		color: #101022}
 
-	div { padding: 50px;
-		font-size: 45px;
+	h4 {font-family: HelveticaNeue;
+		font-size: 30px;
+		}
+
+	p { font-family: HelveticaNeue-light;
+		color: #101022;
+		}
+
+	#one {background-color: #5bb2fc;
+		border-color: #5bb2fc;
+		}
+	
+	#two  {background-color: #58ebd3;
+		border-color: #58ebd3;
+		position: absolute;
+		left: 20%;
+		}
+	
+	#three {background-color: #ffa659;
+		border-color: #ffa659;
+		left: 40%;
+		}
+	
+	#four {background-color: #ff7a85;
+		border-color: #ff7a85;
+		position: absolute;
+		left: 60%;
+
+		}
+
+	#banner {
+			border: solid #787B87;
+			margin: 50px;
+			border-radius: 10px;
+			box-shadow: 0 0 0 2px #696E80, -8px 8px 25px 3px #333748;
+   			}
+
+	#title1 {position: relative;
+		margin: 0;
+		padding: 120px;
+		z-index: 0;
+		}
+
+	#title2 { position: absolute;
+			top: -20%;
+			left: 50%;
+			z-index: -1;
+			}
+
+	#text {position: relative;
+			margin: 50px;
+			bottom: 50%;
+			width: 800px;
+			line-height: 260%;
+			}
+
+	.menu {width: 640px;
+		height: 160px;
 		font-family: HelveticaNeue-light;
-		text-align: center;}
+		font-size: 28px;
+		color: #373A44;
+		font-weight: bold;
+		position: relative;
 
-	.container {
-		padding: 140px 120px;
-		}
-	.js-background-1 {
-		background: transparent url(http://fc02.deviantart.net/fs71/i/2012/171/8/9/png_cat_by_eross_666-d5459gr.png) center 0 no-repeat;
+		top: 2%;
+		left: 5%;}
+
+	.icon {position: absolute;
+		margin: 30px;
+		border: solid;
+		border-radius: 10px;
+		width: 94px;
+		height: 94px;
 		}
 
-	.js-background-2 {
-		background: transparent url(background2.png) center 0 no-repeat;
-		}
 
+	.blurText {position: absolute;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 90px;
+		width: 94px;
+		height: 940px;
+		color: #101022;
+   		text-shadow: 1px 0px 1px #787B87;
+	}
+	
 	</style>
 	
 	
-
-	<h1>Hello I am Scott Hurlow</h1>
-
-
-	<div id="code"; class="js-background-1 container"; data-stellar-background-ratio="0.5">
-		<h2>C A T</h2>
+	<div id="banner" data-stellar-background-ratio="-0.5">
+		
+		<h1 id="title1" >Web Development</h1>
+		<h2 id="title2">101</h2>
+	
+	</div>
+	
+	<div class="menu">
+		
+   		<div id="one" class="icon"><div class="blurText">One</div></div>
+   		<div id="two" class="icon"><div class="blurText">Two</div></div>
+   		<div id="three" class="icon"><div class="blurText">Three</div></div>
+   		<div id="four" class="icon"><div class="blurText">Four</div></div>
 	</div>
 
 
+	<div id="text" data-stellar-background-ratio="-0.5" style="background-position: 50% -300px;">
+		<h4>Duis aute irure dolor</h4>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
 
-
-	<!-- <button type="button" id="butt" onclick="">Try it</button> -->
+	</div>
 
 </body>
 
