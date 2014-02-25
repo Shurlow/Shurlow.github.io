@@ -3,19 +3,21 @@
 
 <head>
 	<title>Scott|||</title>
-	<script src="jquery.js" type="text/javascript"></script>
- 	<script src="jquery.dimensions.js" type="text/javascript"></script>
- 	<script src="jquery.viewport.js" type="text/javascript"></script>
-	<style type="text/css"></style>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+	
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
-	<script type="text/javascript" src="http://www.appelsiini.net/download/jquery.viewport.mini.js"></script>
  	
- 	<script src="para.js"></script>
- 	
- 	<script src="fade.js">type="text/javascript"</script>
+ 	<!-- <script src="para.js" type="text/javascript"></script>
+ 	<script src="fade.js" type="text/javascript"></script> -->
 
- 	<script src="Scroller.js">type="text/javascript"</script>
+
+	<script src="./lib/isInViewport.min.js"></script>
+	
+
+ 	<script src="Scroller.js" type="text/javascript"></script>
+
+
 
 </head>
 
@@ -25,21 +27,20 @@
 	<style type="text/css">
 
 	body {background-color: #787B87;
-		position: relative;
 	}
 
 	div {margin: 0;}
 
 	h1 {color:#101022;
 		text-align: center;
-		font-size: 70px;
+		font-size: 75px;
 		font-family:HelveticaNeue;
 		letter-spacing:3px;git
 		}
 
 	h2 {color: #ff7a85;
 		font-family: HelveticaNeue-light;
-		font-size: 160px;
+		font-size: 180px;
    		font-weight: 100;
 		letter-spacing: 10px;}
 	
@@ -48,6 +49,7 @@
 
 	h4 {font-family: HelveticaNeue;
 		font-size: 30px;
+		margin-top: 0;
 		}
 
 	p { font-family: HelveticaNeue-light;
@@ -56,11 +58,11 @@
 
 	#one {background-color: #5bb2fc;
 		border-color: #5bb2fc;
+		left: 0%;
 		}
 	
 	#two  {background-color: #58ebd3;
 		border-color: #58ebd3;
-		position: absolute;
 		left: 20%;
 		}
 	
@@ -71,55 +73,77 @@
 	
 	#four {background-color: #ffa659;
 		border-color: #ffa659;
-		position: absolute;
 		left: 60%;
 
 		}
 	#five {background-color: #ff7a85;
 		border-color: #ff7a85;
-		position: absolute;
 		left: 80%;
 	}
 
-	#banner {
+	#page {position: absolute;
+		top: 1000px;
+		display: table;
+		border: solid;
+		width: 1300px;
+		height: 900px;}
+
+	#banner {/*overflow: hidden;*/
 			border: solid #787B87;
-			width: 1300px;
-			height: 160px;
-			margin: 50px;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			left: 5%;
 			border-radius: 10px;
 			box-shadow: 0 0 0 2px #696E80, -8px 8px 25px 3px #333748;
    			}
 
 	#title1 {position: relative;
-		top: -5%;
+		bottom: -20%;
+		right: 10%;
+		text-align: right;
 		}
 
 	#title2 {position: relative;
-			top: -180%;
-			left: 60%;
+			margin: 0;
+			left: 73%;
+			bottom: 98%;
+			width: 25%;
 			}
 
-	#text {position: relative;
-			margin: 50px;
-			bottom: 50%;
-			width: 800px;
-			line-height: 260%;
+	#text {position: absolute;
+		left: 5%;
+		top: 5%;
+		display: table-cell;
+		text-align: left;
+		vertical-align: top;
+		line-height: 260%;
+		}
+
+	#text2 {position: absolute;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		line-height: 260%;
+		}
+
+	.header {position: relative;
+			top: 40px;
+			left: 0;
+			margin: 0;
+			width: 90%;
+			height: 200px;
 			}
 
-	.menu {width: 900px;
+	.menu {position: relative;
+		width: 90%;
 		height: 180px;
-		font-family: HelveticaNeue-light;
-		font-size: 28px;
-		color: #373A44;
-		font-weight: bold;
-		position: relative;
-
-		top: 2%;
+		top: 10%;
 		left: 5%;}
 
-	.icon {
-		position: absolute;
-		margin: 40px;
+	.icon {margin: 0;
+		position: relative;
+		padding: 8px;
 		border: solid;
 		border-radius: 10px;
 		width: 94px;
@@ -128,49 +152,84 @@
 
 
 	.blurText {position: absolute;
+		font-family: HelveticaNeue-light;
+		font-size: 28px;
+		letter-spacing: 3px;
+		font-weight: lighter;
 		text-align: center;
 		vertical-align: middle;
 		line-height: 90px;
 		width: 94px;
-		height: 940px;
+		height: 94px;
 		color: #101022;
-   		text-shadow: 1px 0px 1px #787B87;
+   		text-shadow: -2px 2px 8px #787B87;
 	}
 
 	.overlay {position: absolute;
-	  top: 0;
-	  left: 0;
 	  width: 100%;
 	  height: 100%;
 	  z-index: -1;
 	}
+
+	.tolerance {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 20px;
+		position: fixed;
+		background: rgb(212, 12, 20);
+		background-color: rgba(255, 0, 0, 0.4);
+		z-index: 1;
+		}
 	
 	</style>
 	
-	
-	<div id="banner">
+<!-- data-stellar-ratio="0.8" data-stellar-vertical-offset="50" -->
+
+	<div class="tolerance"></div>
+
+	<div class="header" >
+		<div id="banner" class="hook">
 		
-		<h1 id="title1" >Web Development</h1>
-		<h2 id="title2" class="overlay">101</h2>
-	<!-- data-stellar-ratio="0.2" data-stellar-vertical-offset="2" -->
-	</div>
+			<h1 id="title1" >Web Development</h1>
+			<h2 id="title2" class="overlay" >101</h2>
+
+		</div>
+	</div>	
 	
-	<div class="menu">
+	<div class="menu" data-0="top: 5%;" data-400="top: 15%" >
 		
-   		<div id="one" class="icon"><div class="blurText">One</div></div>
-   		<div id="two" class="icon"><div class="blurText">Two</div></div>
-   		<div id="three" class="icon"><div class="blurText">Three</div></div>
-   		<div id="four" class="icon"><div class="blurText">Four</div></div>
-   		<div id="five" class="icon"><div class="blurText">Five</div></div>
+   		<div id="one" class="icon">
+   			<div class="blurText">One</div>
+   		</div>
+   		<div id="two" class="icon" data-0="left: 10%" data-200="left: 20%"><div class="blurText">Two</div></div>
+   		<div id="three" class="icon" data-0="left: 10%" data-200="left: 30%"><div class="blurText">Three</div></div>
+   		<div id="four" class="icon" data-0="left: 10%" data-200="left: 40%"><div class="blurText">Four</div></div>
+   		<div id="five" class="icon" data-0="left: 10%" data-200="left: 50%"><div class="blurText">Five</div></div>
 	
 	</div>
 
 
-	<div id="text">
-		<h4>Duis aute irure dolor</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+	<div id="page">
 
+		<div id="text">
+			<h4>Duis aute irure dolor</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+
+		</div>
+
+		<div id="text2">
+			<h4>Excepteur sint occaecat cupidatat</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		</div>
 	</div>
+
+
+<script type="text/javascript" src="lib/skrollr.min.js"></script>
+<script type="text/javascript">
+    var s = skrollr.init();
+    </script>
 
 </body>
 
