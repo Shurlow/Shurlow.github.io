@@ -1,9 +1,4 @@
-document.onload=function() {
+$("one").click(function() {
+ 	$(this).setAttribute("color","red");
 
-	var e = document.getElementById("one");
-	e.onClick() = function
-}
-
-var function(){
-	e.setAttribute("color","blue");
-}
+})
