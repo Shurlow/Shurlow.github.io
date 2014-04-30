@@ -1,0 +1,241 @@
+/* mnml.css
+ *
+ * This is a customized version of the Swiss default theme. It is dual-licenced under the
+ * GPL2 and MIT licenses and adapted from its original by Laurens Duijvesteijn. The original
+ * swiss.css, as created by Caleb Troughton, is found on Github:
+ *
+ * https://github.com/imakewebthings/deck.js
+ *
+ */
+
+.deck-container {
+  background: #FCFCFC;
+  font-size: 1.25em;
+  font-family: "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif; 
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+}
+.slide {
+  background: #fafafa;
+  margin: 40px;
+  padding-bottom: 20rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  line-height: 1;
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 5.5em;
+  font-weight: 700;
+  border-bottom: 5px #000 solid;
+  margin: 70px 0 70px 0;
+}
+h2 {
+  margin: 0 0 25px 0;
+  font-size: 4em;
+  font-weight: 600; 
+  border-bottom: 2px #000 solid;
+}
+h3 {
+  margin: 25 0 20px 0;
+  font-size: 2.6em;
+  letter-spacing: 0.15rem;
+  font-weight: lighter;
+}
+ul > li > h3 {
+  margin: 0 0 20px 0;
+}
+
+li {
+  font-size: 36px;
+  list-style-position: inside
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+#scott {
+  margin: 0;
+  margin-top: -3.5em;
+  margin-right: 1.8rem;
+  float: right;
+  letter-spacing: 0.8rem;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+#scott2 {
+  margin: 0;
+  margin-top: -4.5em;
+  margin-right: 1.8rem;
+  float: right;
+  letter-spacing: 0.8rem;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+#nodie {
+  width: 15rem;
+  float: right;
+  margin-right: 8rem;
+}
+
+#expImg {
+  position: fixed;
+  right: 10rem;
+  z-index: 1;
+  margin-top: -20rem;
+}
+
+#img1 {
+  width: 25%;
+  margin-left: 6rem;
+}
+
+#img2 {
+  width: 8%;
+  margin-left: 6rem;
+}
+
+#img3 {
+  width: 12%;
+  margin-left: 2rem;
+}
+
+#img5 {
+  width: 49.8%;
+  margin-right: 0.15rem;
+  margin-bottom: 3rem;
+}
+
+#img6 {
+  width: 49.8%;
+  margin-left: 0.15rem;
+  margin-bottom: 3rem;
+}
+
+#img7 {
+  width: 60rem;
+  margin-bottom: 3rem;
+}
+
+#under {
+  margin-bottom: 6rem;
+}
+
+#betatitle {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+#betaimg {
+  margin-bottom: 5rem;
+}
+
+.big {
+  font-size: 200px;
+  margin-bottom: 10rem;
+}
+
+.lilBig {
+  font-size: 5rem;
+  margin-top: 2rem;
+}
+
+.slide pre {
+  font-style: italic;
+  background: #eee;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.slide code {
+  color: #444;
+  font-size: 1.5rem;
+}
+.slide blockquote {
+  margin-left: 1em;
+  padding: .5em 2em;
+  border: none;
+  border-left: 2px #ccc solid;
+  color: #000;
+  font-style: italic;
+  font-size: 1.5em;
+}
+.slide blockquote p {
+  margin: 0;
+}
+.slide blockquote cite {
+  color: #888;
+  font-weight: bold;
+  font-style: normal;
+  font-size: .5em;
+}
+.slide ol {
+  list-style-type: square;
+}
+.slide ::-moz-selection {
+  background: #c00;
+  color: #fff;
+}
+.slide ::selection {
+  background: #c00;
+  color: #fff;
+}
+.slide a,
+.slide a:hover,
+.slide a:focus,
+.slide a:active,
+.slide a:visited {
+  color: #c00;
+  text-decoration: none;
+}
+.slide a:hover,
+.slide a:focus {
+  text-decoration: underline;
+}
+.slide .deck-before,
+.slide .deck-previous {
+  opacity: 0.4;
+}
+.deck-prev-link,
+.deck-next-link {
+  background: #ccc;
+  font-family: serif;
+}
+.deck-prev-link,
+.deck-prev-link:hover,
+.deck-prev-link:focus,
+.deck-prev-link:active,
+.deck-prev-link:visited,
+.deck-next-link,
+.deck-next-link:hover,
+.deck-next-link:focus,
+.deck-next-link:active,
+.deck-next-link:visited {
+  color: #fff;
+}
+.deck-prev-link:hover,
+.deck-prev-link:focus,
+.deck-next-link:hover,
+.deck-next-link:focus {
+  background: #c00;
+  text-decoration: none;
+}
+.deck-status {
+  font-size: 0.6666em;
+}
+.deck-menu .slide {
+  background: #eee;
+}
+.deck-menu .deck-current,
+.no-touch .deck-container.deck-menu .slide:hover {
+  background: #ddf;
+}

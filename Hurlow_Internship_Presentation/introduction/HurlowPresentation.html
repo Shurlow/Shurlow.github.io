@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Invisible Internship</title>
+
+  <meta name="description" content="A jQuery library for modern HTML presentations">
+  <meta name="author" content="Caleb Troughton">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <!-- Core and extension CSS files -->
+  <link rel="stylesheet" media="screen" href="../core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="../extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="../extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="../extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="../extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="../extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="../themes/style/mnml.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="../themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="../core/print.css">
+
+  <script src="../modernizr.custom.js"></script>
+</head>
+
+
+<body>
+  <div class="deck-container">
+
+
+
+<!-- Slide 1 -->
+
+    <section class="slide" id="title-slide">
+      <h1>Invisible Friend Intership </h1>
+      <h3 id="scott">Scott Hurlow</h3>
+      <h3>My experiance learning <b>Javascript,</b> <b>Node,</b> and <b>LevelDB</b></h3>
+    </section>
+
+
+<!-- Slide 2 -->
+
+    <section class="slide" id="how-to-overview">
+      <h2>Goals</h2>
+      <h3 class="mySlideTitle" >Going into my internship</h3>
+      <ol>
+        <li>
+          <h4>Learn essentials of web design & production</h4>
+        </li>
+        <img src="http://edudemic.com/wp-content/uploads/2010/12/all-browsers.png" id="img1">
+        
+        <li>
+          <h4>Experience working with a team</h4>
+        </li>
+        <img src="http://civicio.files.wordpress.com/2013/03/github.png?w=256&h=256" id="img2">
+        <img src="http://raygun.io/blog/wp-content/uploads/2013/09/sprintly.png" id="img3">
+
+        <li>
+          <h4>Help develop a cool product and learn about start-up culture in the Twin Cities!</h4>
+        </li>
+      </ol>
+    </section>
+
+
+<!-- Slide 3 -->
+
+    <section class="slide" id="if">
+
+      <h2>Invisible Friend <span style="font-weight:100; font-size:4rem;">( IF )</span> </h2>
+
+      <img src="../imgs/usrpage.png" id="img4">
+      <img src="../imgs/homepage.png" id="img5">
+      <img src="../imgs/feed.png" id="img6">
+
+
+    </section>
+
+
+<!-- Slide 4 -->
+
+    <section class="slide" id="tools">
+      <h2>Tools</h2>
+
+      <h3>Node</h3>
+      <h3>Express</h3>
+      <h3>LevelDB</h3>
+      <h3>JQuery / Ajax</h3>
+      <h3>Modulus</h3>
+
+    </section>
+
+
+<!-- Slide 5 -->
+
+    <section class="slide" id="Node">
+
+      <h2>Node</h2>
+
+    <script type="syntaxhighlighter" class="brush: js">
+
+      var express = require( 'express' )
+      var db = require( './fbLevel' )
+      var cp = require( 'child_process' )
+      
+      var port = process.env.PORT || 3000
+      var app  = express()
+
+      // tells the app to render HTML using engine.
+      app.set('view engine', 'hjs')
+
+      </script>
+
+      <h4>These are the open source modules that my app depends on. Express.js is the web application framework I use and fbLevel is my own implementation of levelDB using levelUp</h4>
+      <h4>Setting the 'view engine' to hjs tells the app to render html using hogan.js, a lightweight mustache templating engine for Node.</h4>
+
+      <img src="http://joshuakuiros.com/wp-content/uploads/2014/03/nodejs_logo_green.jpg" id="nodie">
+
+    </section>
+
+
+<!-- Slide 6 -->
+
+    <section class="slide" id="Express">
+
+      <h2>Express.js</h2>
+
+
+
+      <h4>This is an example of one of my route requests using my express app. Get and Post requests for the main page:</h4>
+
+    <script type="syntaxhighlighter" class="brush: js">
+        
+        // main page render
+        app.get('/', function(req, res) {
+          
+          db.getAll(function(bundle) {
+            res.render('adminIndex.hjs', {array: bundle})
+          })
+          
+        })
+
+        // user posts new feedback to main page
+        app.post('/', function(req, res) {
+
+          // Using database 'add' method we put the user post in the db
+          db.add(req.body.key, req.body.value, function(err, res){
+            if(err) throw err
+
+            console.log(res + "  added input")
+          })
+        
+        })
+    </script>
+
+    <img src="http://nodejs-cloud.com/img/128px/expressjs.png" id="expImg">
+
+
+    <h4>Very basic authenication variable with express. I can simply pass this into whichever route I desire.</h4>
+    <script type="syntaxhighlighter" class="brush: js">
+      
+      // administrator authentication variable, user and pass.
+      var auth = express.basicAuth(function(user, pass) {
+        return user === 'if' && pass === 'admin';
+      });
+
+    </script>
+
+
+    </section>
+
+  <section class="slide" id="more express">
+
+    <h3 class="lilBig">more Express:</h3>
+
+    <h4>Here is the admin authenitcated route that downloads the entire database as csv file.</h4>
+
+    <script type="syntaxhighlighter" class="brush: js">
+
+        // admin route to download feedback db as csv
+        app.get('/down', auth, function(req, res){
+          
+          res.setHeader('content-type', 'text/csv')
+          var sheetHeaders = ",Date Posted,User Input"
+          var sheetBody = ""
+          var arr = []
+          
+          db.getAll(function(bundle) {
+
+            bundle.forEach(function(item){
+              
+              arr.push("\n")
+              arr.push(Date(item.key))
+              arr.push(item.value)
+              sheetBody = arr.join(",")
+            })
+            res.send(sheetHeaders + sheetBody)
+          })
+        })
+
+    </script>
+
+</section>
+
+
+<!-- Level Slide -->
+
+    <section class="slide" id="level">
+
+      <h2>LevelDB</h2>
+
+      <h4>Here is a snippit of my level database implementation:</h4>
+      
+      <script type="syntaxhighlighter" class="brush: js big">
+
+      // my 'requires' 
+      var level = require( 'level' )
+      var db = level('./FeedbackDB', { valueEncoding: 'json' })
+      var concat = require('concat-stream')
+
+      //exports methods as module for use in Node app. 
+      var FeedbackDB = exports;
+
+      // Implementation of levelUP put() method
+      FeedbackDB.add = function(key, val, cb) {
+
+        db.put(key, val, function (err) {
+            if (err) return cb(err)
+            
+            cb(null, "Success.")
+          })
+      }
+
+
+      </script>
+
+      <h4>For my purpose, I did not need to implement more than a few essential methods, put, getKey, getValue, getAll, and deleteAll, all with a similar structure as the one above.</h4>
+
+
+    </section>
+
+
+<!-- Slide 7 -->
+
+    <section class="slide" id="code-snippit">
+
+      <h2>JQuery + Ajax</h1>
+      <h4>Since I am already using JQuery for the user input, I decided to continue and use the JQuery ajax method for posting the input to the app.</h4>
+
+      <script type="syntaxhighlighter" class="brush: js">
+      // Here I use JQuery's ajax method to post new sumbission to database
+      $.ajax({
+        url: '/',
+        method: 'POST',
+        contentType: 'application/json',
+        dataType: 'json'
+        data: JSON.stringify(data),
+      })
+      
+      </script>
+
+      <h4>I eventually hope to replace this JQuery with Browserify and Super-Agent to achieve a more wholistic 'node-like' infrastructure.</h4>
+
+    </section>
+
+
+<!-- Slide -->
+
+    <section class="slide" is="mod">
+
+      <h2>Modulus</h2>
+      <h4>Modulus provided an easy way to deploy my web app.</h4>
+      <h4>With further iterations of this project I expect to set up my own server to run the feedback page.</h4>
+
+      <img src="../imgs/modulus.png" id="img7">
+
+
+    </section>    
+
+
+<!-- Slide 8 -->
+
+    <section class="slide" id="feedbackPage">
+
+      <img src="../imgs/feedback.png" id="img8">
+
+      <h3 id="under">First beta version of Feedback page     
+        <a href="http://feedback.invisiblefriend.com/">Live App</a>
+      </h3>
+
+    </section>
+
+
+<!-- Slide 9 -->
+
+    <section class="slide" id="beta">
+
+      <h3 id="betatitle">Initial Beta Release</h3>
+
+      <img src="../imgs/activefeed.png" id="betaimg">
+
+    </section>
+
+<!-- Slide -->
+
+    <section class="slide" id="completed">
+
+      <h3 class="lilBig">Skills I Came Away With:</h3>
+        <ol>
+          <li>Comfortability with Javascript</li>
+          <li>Basis for writing Node and Express Web apps</li>
+          <li>Introduction to LevelDB and general db implementation</li>
+          <li>Mastering Git</li>
+
+        </ol>
+
+
+      <h3 class="lilBig">Areas to Continue:</h3>
+        <ol>
+
+          <li>More complete/complex understanding of databases</li>
+          <li>Streams in Node</li>
+          <li>Continued, but now payed, internship with IF through this Summer!</li>
+
+        </ol>
+
+
+
+    </section>
+
+    <section class="slide" id="final">
+      <h1 class="big">Thank You</h1>
+      <h3 id="scott2">Scott Hurlow</h3>
+
+      <h4>Follow my feedback prject as I keep adding cool features:
+        <a href="https://github.com/Shurlow/if-feedback"> IF-Feedback GitHub</a>
+      </h4>
+
+      <h4>And check out Invisible Friend
+        <a href="http://beta.invisiblefriend.com/"> Beta Page</a>
+      .</h4>
+      
+
+    </section>
+
+
+
+<script src="../jquery.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+<script src="../extensions/scale/deck.scale.js"></script>
+<script src="../extensions/deck.syntaxhighlighter.js"></script>
+
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+  $.deck('.slide');
+});
+</script>
+
+</body>
+</html>
